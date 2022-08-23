@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [1.8.4] - 2022-08-23
+
+Remove ImEdgeActions folder and ImEdgeTemplate.png in the SyncContent script
+
 ## [1.8.3] - 2022-06-09
 
 Remove Server_Client_UI option.
