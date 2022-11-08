@@ -24,9 +24,9 @@ $ProjectPath = Resolve-Path -Path "${PSScriptRoot}\.."
 
 # Get first uproject file (there should not be multiple)
 $ProjectFile = (Get-ChildItem -Path "${ProjectPath}" -Filter *.uproject  | Select-Object -First 1)
-$SyncFiles = @($ProjectFile, "CHANGELOG.md", "ImEdgeTemplate.png")
+$SyncFiles = @($ProjectFile, "CHANGELOG.md")
 
-$FoldersList = @("Content", "Config", "Cloud", "ImEdgeActions", "ToBuild", "Source", "Plugins", "ToCustomize")
+$FoldersList = @("Content", "Config", "Cloud", "ToBuild", "Source", "Plugins", "ToCustomize")
 # Add folders to the list of synced folder only if they exist
 $SyncFolders = @()
 Foreach ($Folder in $FoldersList) {
