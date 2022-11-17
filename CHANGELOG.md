@@ -1,8 +1,12 @@
 # Immersive Stream for XR Template Project
 
+## [1.8.5] - 2022-11-09
+
+Replace hardcoded resolution with custom resolution in Default_InterfaceHUD blueprint.
+
 ## [1.8.4] - 2022-08-23
 
-Remove ImEdgeActions folder and ImEdgeTemplate.png in the SyncContent script
+Remove ImEdgeActions folder and ImEdgeTemplate.png in the SyncContent script.
 
 ## [1.8.3] - 2022-06-09
 
