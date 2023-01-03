@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [1.8.6] - 2022-12-27
+
+Set static AR lighting as default and keep dynamic as an option.
+
 ## [1.8.5] - 2022-11-09
 
 Replace hardcoded resolution with custom resolution in Default_InterfaceHUD blueprint.
