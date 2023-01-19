@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.0] - 2023-01-19
+
+Upgrade version for UE5.
+
 ## [1.8.6] - 2022-12-27
 
 Set static AR lighting as default and keep dynamic as an option.
