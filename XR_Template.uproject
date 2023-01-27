@@ -9,7 +9,7 @@
                     }
                 ],
     "TargetPlatforms":  [
-                            "WindowsNoEditor",
-                            "LinuxNoEditor"
+                            "Win64",
+                            "Linux"
                         ]
 }
