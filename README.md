@@ -21,7 +21,7 @@ ________________________________________________________________________________
 ### Getting started
 To get started with Immersive Stream for XR, you can download this template project that
 includes all the required settings for you to start your project.
-The project uses [Unreal Engine®](about-unreal) 5.0.3.
+The project uses [Unreal Engine®](https://cloud.google.com/immersive-stream/xr/docs/about-unreal) 5.0.3.
 
 
 ### Features
@@ -184,7 +184,7 @@ events:
 *  `3D_DefaultPawn` shows how you can use pinch, tap,
    and slide gestures to control the camera.
 
-#### Server to Client Events
+#### Server to Client events
 
 From the Unreal® project on the server side, you can trigger the following events
 on the client side:
@@ -318,7 +318,7 @@ it cannot be empty._
 Immersive Stream for XR allows for screen space UI in 3D mode only.
 In AR mode, you can add any UI as world space UI, similar to the standard approach to UI in VR games.
 
-The UI works with the [server to client events](#server_to_client_events)
+The UI works with the [server to client events](#server-to-client-events)
 that are set up in Unreal Engine® and all of the UI elements will show up in the
 experience.
 
@@ -582,17 +582,24 @@ ________________________________________________________________________________
 
 ## Demo Features and Templates
 
+#### Table of Contents
+1. [Overview](#overview)
+2. [Autos Template](#autos-template)
+2. [Spaces Template](#spaces-template)
+
 ### Overview
 The Immersive Stream for XR template project includes some Demos which show how to use some features and offer content specific pre-made experiences examples such as Automotive display.
 
 <img src="/docs/static/demos-start.png" alt="Demos start screen" width="250">
+
+_Note: Currently the Demos are optimized for Portrait mode only._
 
 There are two types of demos, `Feature demos` and `Template demos`. All Demo assets can be found in the `Content/Demos` folder.
 
 <img src="/docs/static/demos-folder-structure.png" alt="Demos folder structure" width="350">
 
 To view all demos you can load the `Demos_Persistent` level that contains the necessary UI to switch between demos.
-Each feature has its own streaming level within `Demos_Persistent` and each template has its own persistent map ex: `Autos_Template`.
+Each feature has its own streaming level within `Demos_Persistent` and each template has its own persistent map ex: `Autos_Persistent`.
 
 <img src="/docs/static/demos-persistent-structure.png" alt="Persistent level structure" width="350">
 
@@ -605,6 +612,22 @@ The main UI for demos is `Demos_UI` and is set in the `XR_Init` BP that is in th
 Demos have their own HUD `Demos_InterfaceHUD` and Game Mode `Demos_GM`.
 
 <img src="/docs/static/demos-xrinit.png" alt="Demos XR_Init settings" width="350">
+
+To build and test the Demos the maps need to be included in the project settings in the `DefaultGame.ini` file:
+
+    +MapsToCook=(FilePath="/Game/Demos/Demos_Persistent")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Maps/Dummy_Car")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Autos_Persistent")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Maps/AR_BG_Autos")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Maps/3D_BG_Outdoors")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Maps/3D_BG_Studio")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Spaces/Spaces_Persistent")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Spaces/Maps/LivingRoom_BG")
+    +MapsToCook=(FilePath="/Game/Demos/Templates/Spaces/Maps/LivingRoom_Content")
+
+You can test this by creating the experience link with the `Demos_Persistent:Content_Start` asset ID.
+
+<img src="/docs/static/demos-asset-id.png" alt="Using the Demos asset ID" width="400">
 
 #### Features demos
 Features demos include simple demos of specific features. For example, the `Custom 3D Camera` demo shows how to change camera controls.
@@ -646,12 +669,12 @@ The **Autos template** includes the following assets:
 
 #### Overview
 The content for the Autos template can be found in the `Content/Demos/Templates/Autos` folder.
-The main persistent map is `Autos_Template` which includes the following streaming levels:
+The main persistent map is `Autos_Persistent` which includes the following streaming levels:
 
 <img src="/docs/static/demos-autos-levels.png" alt="Autos template streaming levels" width="350">
 
 All of these levels are loaded and only `Dummy_Car` and `3D_BG_Studio` are visible at start.
-The `Autos_Template` map has an instance of the `XR_Init` blueprint with the initial settings to load the correct maps and UI.
+The `Autos_Persistent` map has an instance of the `XR_Init` blueprint with the initial settings to load the correct maps and UI.
 
 <img src="/docs/static/demos-autos-xrinit.png" alt="Autos template XR_Init settings" width="350">
 
@@ -723,7 +746,112 @@ Because we only want the hostposts that change the camera to be only available i
 
 <img src="/docs/static/demos-autos-modes.png" alt="Mode specific triggers" width="600">
 
-_Note: To build and test the Demos the maps need to be included in the project settings.
-You can test this by creating the experience link with the `Demos_Persistent:Content_Start` asset ID_
+### Spaces template
 
-<img src="/docs/static/demos-asset-id.png" alt="Using the Demos asset ID" width="400">
+<table>
+  <tr>
+    <td><img src="/docs/static/demos-spaces-start.png" alt="Spaces template start screen" width="250"></td>
+     <td><img src="/docs/static/demos-spaces-start-menu.png" alt="Spaces template start screen with the menu expanded" width="250"></td>
+  </tr>
+</table>
+
+The **Spaces template** is designed as a starting point for experiences that navigate spaces and provides basic examples on common interactions like the following:
+* `SpaceManager` blueprint with pre-made logic for spaces,products and variants.
+* Toggle between differenct spaces.
+* Hotspots to select and focus on products.
+* Edit the space by selecting different product variants.
+* Hotspots to navigate the space from different angles.
+
+The **Spaces template** includes the following assets:
+* Demo furniture assets with a few variants.
+* Materials for wall and floor decoration switch.
+* Two background environments (Interior and Exterior).
+* Customizable UI.
+* Pre-made reusable elements like product and navigation hotspots.
+
+#### Overview
+The content for the Spaces template can be found in the `Content/Demos/Templates/Spaces` folder.
+The main persistent map is `Spaces_Persistent` which includes the following streaming levels:
+
+<img src="/docs/static/demos-spaces-levels.png" alt="Spaces template streaming levels" width="350">
+
+All of these levels are loaded and only `LivingRoom_Content` and `LivingRoom_BG` are visible at start.
+The `Spaces_Persistent` map has an instance of the `XR_Init` blueprint with the initial settings to load the correct maps and UI.
+
+<img src="/docs/static/demos-spaces-xrinit.png" alt="Spaces template XR_Init settings" width="350">
+
+#### UI
+The Spaces template uses the `Spaces_UI` widget which includes the initially hidden `Spaces_InfoCard` that is displayed when the product hotspots are clicked.
+
+<img src="/docs/static/demos-spaces-ui.png" alt="Autos UI" width="600">
+
+#### Pre-made reusable elements
+
+##### Spaces Manager
+The `SpacesManager` blueprint has most of the logic for the template to work, including a list of spaces, products for each space and variants. The `SpacesManager` is within the `Spaces_Persistent` level.
+
+<img src="/docs/static/demos-spaces-manager.png" alt="Autos UI" width="400">
+
+In the blueprint details you can add the details of your project with the following structure:
+
+    Spaces(+)
+      Name
+      Background Level
+      Content Level
+      Thumbnail
+      Products(+)
+        Tag
+        Variants(+)
+          Title
+          Description
+          Link
+          Thumbnail
+          Actor
+
+_Note: We assume that the starting space is the first one listed in the `SpacesManager`._
+
+The main events defined in `SpacesManager` are:
+
+* `ProductSwitch` Triggered by the hotspot placed on each product using `BP_Hotspot_Product`.
+* `VariantSwitch` Triggered by the variant's button within the product's info card.
+* `ARState` Binded to the switch to AR action.
+* `3DState` Binded to the switch to 3D action.
+
+##### Displaying Products in 3D and AR mode
+Each product variant has its own blueprint. You can place the products in the space's content map and translate/rotate them as needed on the scene.
+
+Because we only want to view the active product variant in AR mode, we hide the products in the 3D scene and spawn an instance of the active product blueprint at the origin.
+
+Once the user returns to 3D mode we destroy the asset we created for AR mode and display the other products in the scene.
+
+As mentioned above, these actions are triggered by the `ARState` and`3DState` events.
+
+##### Product Hotspots
+*Product hotspots* are used to select a product from the scene and expand their info card. For this we use the `BP_Hotspot_Product` blueprint.
+
+`BP_Hotspot_Product` includes:
+
+* `Widget` with texture that always faces the camera.
+* `StaticMesh` invisible mesh used as touch component.
+* `tag` variable that links the hotspot to a product.
+
+To add *product hotspots* in the scene place a `BP_Hotspot_Product` in your background level and modify it's tag value to match the tag of the product it will link to.
+
+<img src="/docs/static/demos-spaces-product-hotspot.png" alt="Spaces product hotspot" width="350">
+
+##### Camera Hotspots
+*Camera hotspots* are used to move the camera view to specific areas in the scene. To achieve this we use the `BP_Hotspot_Cam` blueprint.
+
+`BP_Hotspot_Camera` includes the following components:
+
+* `Widget` rotated to place on the floor.
+* `StaticMesh` invisible mesh used as touch component.
+
+You can add the `BP_Hotspot_Camera` to your background level and place it in the spot where you want the camera to move to when clicked.
+
+<img src="/docs/static/demos-spaces-camera-hotspot.png" alt="Camera hotspot" width="350">
+
+##### AR and 3D only triggers
+Because we only want to view the active product variant in AR mode, we hide the products in the 3D scene and spawn a the active product blueprint in the origin of the scene.
+
+Once the user returns to 3D mode we destroy the asset we created for AR mode and display the other products in the scene.

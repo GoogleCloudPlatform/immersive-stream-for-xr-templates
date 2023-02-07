@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.1] - 2023-02-07
+
+Add Spaces template demo.
+
 ## [2.0.0] - 2023-01-19
 
 Upgrade version for UE5.
