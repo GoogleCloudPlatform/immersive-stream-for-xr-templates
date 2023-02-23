@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.2] - 2023-02-22
+
+Changed r.AntiAliasingMethod to 2.
+
 ## [2.0.1] - 2023-02-07
 
 Add Spaces template demo.
