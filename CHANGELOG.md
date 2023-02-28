@@ -1,8 +1,8 @@
 # Immersive Stream for XR Template Project
 
-## [2.0.2] - 2023-02-22
+## [2.0.2] - 2023-02-28
 
-Changed r.AntiAliasingMethod to 2.
+Set TSR translucency in XR_Init.
 
 ## [2.0.1] - 2023-02-07
 
