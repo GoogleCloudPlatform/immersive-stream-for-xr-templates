@@ -145,17 +145,6 @@ You can modify the exposed values as needed in the `XR_Init` blueprint:
 * `Debug Mode`: Display or hide the toggle stats button in the build.
 * `Debug Stats Commands`: List of commands to run when tapping the stats button in debug mode.
 
-#### Debug mode enabled
-
-The scale of the stats screen when debug mode is enabled is determined by the
-camera's FOV. The larger the FOV, the smaller the stats. For example, this
-capture uses the default value of `40deg`:
-
-<img src="/docs/static/template-debug-mode.png" alt="Experience with debug mode enabled" width="500">
-
-Important: Make sure that the project runs both in 3D and AR modes at ~30fps in
-the deployed version. This helps the experience run smoothly and avoid crashes.
-
 #### Game mode
 
 The project uses `Default_GM` as the default game mode, which is required for
@@ -363,90 +352,56 @@ You can do this in the `Default_InterfaceHUD` by using the console variable
 
 _______________________________________________________________________________________
 
-
 ## Content guidelines for 3D and AR creators
 
-Immersive Stream for XR currently supports **Unreal Engine**. The recommended
-specifications are based on asset integration and development with *Unreal®
-version 5.0.3*.
+Immersive Stream for XR currently supports **Unreal Engine®**. We recommend optimizing your content and project settings for the experience to always run at 30FPS and load in 2 seconds or less in both 3D and AR mode when deployed in the cloud. This helps the experience run smoothly and avoid crashes.
 
-### Recommended specifications
+At the moment we do not provide runtime logs, but you can view the stats on screen and use other [Unreal® Engine tools for testing and optimization](https://docs.unrealengine.com/5.0/en-US/testing-and-optimizing-your-content/).
 
-The specifications are selected to guarantee that the assets will render at 30
-FPS *and* load in 2 seconds or less when deployed in the cloud.
+You can find more information on stat commands in the [Unreal Engine® documentation](https://docs.unrealengine.com/5.0/en-US/stat-commands-in-unreal-engine/).
 
-#### File size
+### Debug Mode
 
-To check the size of your map in Unreal® Editor, use the right-click menu of the
-car level umap asset and then select
-[Size Map](https://docs.unrealengine.com/en-US/Engine/Basics/AssetsAndPackages/AssetManagement/CookingAndChunking/index.html#sizemap).
-Including large assets tends to increase loading times. Enable
-streaming for meshes and textures.
+In the template you can enable **Debug mode** in the **XR_Init** blueprint. This displays a button that toggles the stats on screen on and off.
 
-Keep asset names to a maximum of 30 characters.
+<img src="/docs/static/template-debug-mode.png" alt="Experience with debug mode enabled" width="500">
 
-#### Textures
+_Note: The scale of the stats screen when debug mode is enabled is determined by the
+camera's FOV. The larger the FOV, the smaller the stats. For example, this
+capture uses the default value of `40deg`_
 
-We recommend optimizing the
-textures for optimal loading times and rendering performance.
+By default these are the stat commands that will be displayed:
 
-You can use the **Required Texture Resolution** view to analyze the texture size
-needs for each asset.
+* `stat FPS`
+* `stat Unit`
+* `stat Engine`
+* `stat SceneRendering`
 
-<img src="/docs/static/content-textures.png" alt="Analyzing texture size" width="700">
+You can add more commands in the **Debug Stats Command** list in the **XR_Init** blueprint within the persistent level.
 
-Bake any textures that you use from
-[Substance](https://www.substance3d.com/) or any other dynamic plugins.
+<img src="/docs/static/content-debug-stats.png" alt="Debug stats commands" width="400">
 
-#### Materials
+### Optimization Suggestions
 
-##### Translucent materials
+Here area few suggestions to optimize your project if it is not running smoothly at 30FPS on ISXR:
+* **Meshes:** Enable Nanite or use LODs when needed.
+* **Textures:** Limit the total size of all loaded textures and the maximum dimensions of each texture.
+* **Map size:** Optimize file sizes to avoid an increase in loading times. To check the size of your maps in Unreal® Editor, use the right-click menu of the level umap and then select Size Map.
+* **Shadows:** Disable dynamic shadow casting for meshes that do not contribute much to the shadow and limit the number of light sources that cast dynamic shadows.
+* **Lighting:** Nanite is enabled by default. Balance the use of dynamic and static lighting.
+* **Render times:** Analyze the statistics of a rendered frame in Unreal® Editor by positioning the camera to show the full model, running the `r.AllowOcclusionQueries 0` console command to avoid GPU object culling and using:
+  * `stat RHI`
+  * `stat GPU`
 
-Use Surface *ForwardShading* as the lighting mode for translucent materials.
+**Other suggestions:**
+* Keep asset names to a maximum of 30 characters.
+* Limit the number of planar reflection planes.
+* Bake any textures that you use from [Substance](https://www.substance3d.com) or any other dynamic plugins.
+* Use Surface *ForwardShading* as the lighting mode for translucent materials.
 
-##### Ray tracing
+_Note: Hardware raytracing is currently not supported._
 
-Currently, Immersive Stream for XR does not support ray tracing.
-
-#### Meshes
-
-##### Shadow casting
-
-Leave shadow casting enabled for most meshes, but we recommend that you disable
-dynamic shadow casting for smaller meshes when possible.
-
-##### Instancing
-
-Meshes should use instancing as much as possible.
-
-##### Triangle and mesh count
-
-Keep the total triangle count of all meshes and the number of distinct meshes
-within a reasonable range. For example, for Automotive projects, we used
-17,000,000 triangles or less for LOD 0 and 700,000 or less for LOD 1, with a
-mesh count of less than 300. This speeds up model loading times and avoids a
-large number of draw calls.
-
-##### Connectivity
-
-Keep repeated vertices to a minimum. In general, the number of vertices per
-mesh should be less than 1.75 times the number of triangles. You can check
-whether the vertex and triangle count of your original mesh roughly match the
-one in Unreal® Editor after importing.
-
-##### LODs
-
-When the total triangle count for all meshes is above the 700,000 limit, high
-triangle count meshes can provide both a high (LOD 0) and low detail LOD (LOD
-1). LOD1 will be shown initially while LOD0 is streamed in.
-
-* Set the **Screen Size** to 0.0 for LOD 1.
-* Set **LOD for collision** to 1.
-
-You can provide a custom, externally generated mesh for LOD 1 or use
-[Unreal Engine®'s built-in mesh simplification](https://docs.unrealengine.com/en-US/Engine/Content/Types/StaticMeshes/HowTo/AutomaticLODGeneration/index.html).
-
-#### Adding Videos
+### Adding Videos
 
 The experience is run using Linux and Vulkan, so the supported type of video
 formats are:
@@ -459,113 +414,14 @@ this in the **Project Settings** > **Packaging** section._
 
 <img src="/docs/static/content-movie-files.png" alt="Project Settings for movie files" width="700">
 
-#### Lighting setups
 
-##### 3D mode background levels
+### Orientation
 
-Ideally, 3D mode background levels should use one movable `DirectionalLight` and
-dynamic shadow casting. The scenes can include an `HDRI_Backdrop`
-with a stationary `SkyLight`. In some cases, you can use additional static light
-sources that use prebuilt lighting.
-
-##### AR mode background level
-
-Our AR mode background level uses the `ARLighting_Static` blueprint that contains a `Directional Light` and a `Skylight`.
-Any modifications made to this blueprint will affect the final look in AR
-
-##### Asset levels
-
-You can add light sources to the asset levels, but these light sources need
-to have static mobility and **Cast Shadows** turned off.
-
-#### Orientation
-
-##### Rotation
+#### Rotation
 
 For the assets to face the camera at the start of the experience when using
 the default camera setup,  rotate the assets to face the -X axis. The 3D
 default pawn starts with a 45 deg rotation in Z.
-
-#### Optimization
-
-_Note: The optimal values mentioned below do not account for Nanite and Lumen usage._
-
-##### Textures
-
-Make sure the following values are within the bounds listed in the
-the following tables:
-
-    Fully Loaded Memory ≤ 1,500,000 KB | Limit total size of all loaded textures.
-
-Make sure that for each texture the following value is within bounds.
-
-    Max dimensions ≤ 4,096x4,096 | Limit the maximum dimensions of each texture.
-
-Make sure that the number of rows (distinct textures) is ≤ 150.
-
-You can view these values for your application by following these steps:
-
-1. In the **Statistics** window, select **Texture Stats** from the drop down menu.
-2. Select **All Streaming Levels** in the upper right dropdown.
-
-##### Geometry
-
-Select **Primitive Stats** from the upper left drop down menu in the
-**Statistics** window and select **All Objects** in the upper right dropdown.
-Make sure the following values are within the bounds listed below in the first
-row of the following table:
-
-| <span style="font-weight:400">Count ≤ 300</span>| <span style="font-weight:400">limit the number of unique meshes</span>|
-|:-----------------------|:----------------------------------------------|
-| Inst Section ≤ 1000    | limit the number of sections within each mesh |
-| Sum Tris ≤ 17,000,000  | limit the total triangle count                |
-| Avg R ≤ 75             | limit the average mesh bounding sphere radius |
-
-_Note that optimizing one of the requirements above might negatively impact others. It is
-important to find a balance such that all values stay within the bounds._
-
-##### Rendering
-
-You can analyze the statistics of a rendered frame in Unreal® Editor. To do so,
-position the camera to show the full model. Run the `r.AllowOcclusionQueries
-0` console command to avoid GPU object culling. Then run the following console
-commands:
-
-    stat RHI
-
-Make sure the counters for *Triangles drawn* are ≤ 35,000,000 and *DrawPrimitive calls* ≤ 1,500.
-
-    stat GPU
-
-Make sure the average timing for the *Basepass* is less than or equal to one third of the entry for *[Total]*.
-
-You can find more information on stat commands in the [Unreal Engine® documentation](https://docs.unrealengine.com/en-US/Engine/Performance/StatCommands/index.html)
-
-#### Asset analysis
-
-To make sure the models are up to the required specifications, you can analyze most of the specifications listed above within Unreal® Editor using the
-**Window ￫ Statistics** window or using the **Asset Analysis** tool.
-
-This tool should be loaded by default when opening the template project.
-If you don't see the window, you can activate it with the following steps:
-
-    Click Window > Editor Utility Widgets > AssetAnalysis
-
-
-### Links and resources
-
-#### Automatic LOD generation
-
-To generate the low detail LOD (LOD 1) using the automatic LOD generation
-that Unreal Engine® provides, start with a simplification percentage that
-generates meshes totalling 500,000 triangles or less. From there, add additional
-triangles for meshes with obvious mesh defects. You can check the total
-triangle count of a view using the `stat` commands described in the
-[Rendering](#rendering) section. To force rendering of LOD 1, you
-can set **Forced Lod Model** to 2 on all meshes (don't forget to reset **Forced
-Lod Model** to 0 before sharing). For the automatic LOD generation to work
-optimally, make sure to merge all duplicate vertices to get a better
-representation of the mesh connectivity.
 
 
 ### Limitations

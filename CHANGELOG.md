@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.3] - 2023-03-07
+
+Enabled Lumen by default and added minor optimizations.
+
 ## [2.0.2] - 2023-02-28
 
 Set TSR translucency in XR_Init.
