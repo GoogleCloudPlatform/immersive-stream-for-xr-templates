@@ -612,8 +612,8 @@ Because we only want the hostposts that change the camera to be only available i
 </table>
 
 The **Spaces template** is designed as a starting point for experiences that navigate spaces and provides basic examples on common interactions like the following:
-* `SpaceManager` blueprint with pre-made logic for spaces,products and variants.
-* Toggle between differenct spaces.
+* `SpaceManager` blueprint with pre-made logic for spaces, products and variants.
+* Toggle between different spaces.
 * Hotspots to select and focus on products.
 * Edit the space by selecting different product variants.
 * Hotspots to navigate the space from different angles.
