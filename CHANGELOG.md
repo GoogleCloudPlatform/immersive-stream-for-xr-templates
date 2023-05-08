@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.4] - 2023-05-08
+
+New template with Cloud assets.
+
 ## [2.0.3] - 2023-03-07
 
 Enabled Lumen by default and added minor optimizations.
