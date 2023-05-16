@@ -20,7 +20,7 @@ ________________________________________________________________________________
 
 ### Getting started
 To get started with Immersive Stream for XR, you can download this template project that
-includes all the required settings for you to get started.
+includes all the required settings for you to start your project.
 The project uses [Unreal Engine®](https://cloud.google.com/immersive-stream/xr/docs/about-unreal) 5.0.3.
 
 
@@ -29,8 +29,9 @@ This template project supports the following features:
 
 * Switch between 3D and AR modes.
 * Fully customizable UI and events triggered within Unreal Engine®.
-* Pre-made events [Trigger in AR, Trigger in 3D, Switch Background, Switch Map].
-* Pre-made client trigger events [Switch to AR Mode, Redirect to URL].
+* Pre-made events [Trigger in AR,  Trigger in 3D, Switch Background, Switch Map].
+* Pre-made client trigger events
+  [Switch to AR Mode, Set Share URL, Redirect to URL].
 * Fully customizable pre-set gesture controlled camera for 3D mode.
 * Touch in world space for 3D and AR.
 * Debug mode with toggle stats option.
@@ -177,11 +178,13 @@ events:
 From the Unreal® project on the server side, you can trigger the following events
 on the client side:
 
-* `Switch to AR Mode`: Triggers the switch from 3D to AR mode.
+* `Switch to AR Mode``: Triggers the switch from 3D to AR mode.
+* `Set Share URL`: Sets the URL that is shared when triggering the OS share panel.
 * `Redirect to URL`: Opens the specified website on the client side.
 
-In the Unreal® Editor **Switch to AR Mode** triggers a simplified preview
-and **Redirect to URL** prints out the specified URL to screen.
+**Switch to AR Mode** triggers a simplified preview in the Unreal® Editor
+and both the **Set Share URL** and **Redirect to URL** events  print out the
+specified URL to screen.
 
 You can find examples of how these events are set up in the `3D_UI`
 widget blueprint.
@@ -468,7 +471,7 @@ Demos have their own HUD `Demos_InterfaceHUD` and Game Mode `Demos_GM`.
 
 To build and test the Demos the maps need to be included in the project settings in the `DefaultGame.ini` file:
 
-    +MapsToCook=(FilePath="/Game/Demos/Maps/Demos_Persistent")
+    +MapsToCook=(FilePath="/Game/Demos/Demos_Persistent")
     +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Maps/Dummy_Car")
     +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Autos_Persistent")
     +MapsToCook=(FilePath="/Game/Demos/Templates/Autos/Maps/AR_BG_Autos")
