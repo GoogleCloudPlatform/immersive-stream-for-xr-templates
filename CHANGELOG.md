@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.5] - 2023-05-30
+
+Added an audio-video sync level to the features demo.
+
 ## [2.0.4] - 2023-05-17
 
 New template with Cloud assets.
