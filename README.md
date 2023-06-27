@@ -39,6 +39,17 @@ This template project supports the following features:
 * Upload by running a script [SyncContent.ps1].
 * Adaptive lighting in AR mode [Experimental].
 
+### Testing Locally
+Immersive Stream for XR runs on Linux + Vulkan.
+In the Project settings change the platform's *Default RHI* to *Vulkan*
+to replicate the expected final look in Unreal Editor when developing in other platforms.
+
+<img src="/docs/static/template-testing-RHI.png" alt="Default RHI settings" width="450">
+
+To test if a Linux build succeeds locally, install the
+[Cross-Compile Toolchain](https://docs.unrealengine.com/5.0/en-US/linux-development-requirements-for-unreal-engine/)
+and trigger a build using Linux as the desired platform.
+
 
 ### Setup and content overview
 
@@ -397,6 +408,16 @@ Here area few suggestions to optimize your project if it is not running smoothly
 * Use Surface *ForwardShading* as the lighting mode for translucent materials.
 
 _Note: Hardware raytracing is currently not supported._
+
+### Adding Audio
+
+Audio can be added to the experience using the standard Unreal Engine process.
+
+When creating the launch URL for the experience make sure you check the **Enable audio** option.
+
+<img src="/docs/static/content-audio.png" alt="Experience with audio enabled" width="300">
+
+_Note: Currently audio works in the web client only._
 
 ### Adding Videos
 
