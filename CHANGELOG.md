@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.6] - 2023-07-01
+
+Added fix for cross-platform landscape mode.
+
 ## [2.0.5] - 2023-05-30
 
 Added an audio-video sync level to the features demo.
