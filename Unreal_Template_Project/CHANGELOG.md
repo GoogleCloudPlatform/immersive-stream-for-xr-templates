@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.7] - 2023-08-03
+
+Added configurable bounding box scale for AR placement.
+
 ## [2.0.6] - 2023-07-01
 
 Added fix for cross-platform landscape mode.

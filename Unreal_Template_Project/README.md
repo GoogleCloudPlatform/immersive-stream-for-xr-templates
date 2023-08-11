@@ -35,6 +35,7 @@ This template project supports the following features:
 * Touch in world space for 3D and AR.
 * Debug mode with toggle stats option.
 * Preview support in the editor.
+* Configurable bounding box scale for AR placement.
 * Asset ID definition to set starting map using the entrypoint URL.
 * Upload by running a script [SyncContent.ps1].
 * Adaptive lighting in AR mode [Experimental].
@@ -229,6 +230,28 @@ the teleport function causes the pivot point of the scene to not coincide with t
 
 _Note: The preview is for design purposes and will not display the exact camera
 pose._
+
+#### AR Bounding box
+
+When placing objects in AR mode it is important to define a bounding box according to the object's scale.
+Increasing or decreasing the bounding box size results in the object to be initially placed farther or closer respectively.\
+Like in Unreal, where one unit equals one meter, the units for the AR bounding box size are in meters.
+
+You can visualize the AR bounding box in Unreal Editor.
+
+<img src="docs/static/template-ar-bb.png" alt="Bounding box visualizer" width="300">
+
+_Note: This asset is visible in editor only._
+
+Creators have two ways of modifying the bounding box:
+
+1. Set the bounding box scale value for the whole project in the `XR_Init` settings.\
+This is useful in projects where only assets of a similar size are placed in AR mode.
+<img src="docs/static/template-ar-bb-xrinit.png" alt="Bounding box XR_Init" width="350">
+
+2. Modify the bounding box value on a specific event in the experience using the
+`UpdateBoundingBoxSize` event.
+<img src="docs/static/template-ar-bb-event.png" alt="Bounding box event" width="300">
 
 #### Asset and background switch
 You can use a pre-made event to switch between maps and backgrounds. Call
