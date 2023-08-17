@@ -233,6 +233,9 @@ pose._
 
 #### AR Bounding box
 
+_Note: Customizing the AR bounding box is supported starting from the latest versions of the Google App (275.0.550423587 and 14.31.21).\
+Please update the Google App on your device before using this feature._
+
 When placing objects in AR mode it is important to define a bounding box according to the object's scale.
 Increasing or decreasing the bounding box size results in the object to be initially placed farther or closer respectively.\
 Like in Unreal, where one unit equals one meter, the units for the AR bounding box size are in meters.
