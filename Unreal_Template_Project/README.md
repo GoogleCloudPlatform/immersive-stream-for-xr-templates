@@ -240,19 +240,7 @@ When placing objects in AR mode it is important to define a bounding box accordi
 Increasing or decreasing the bounding box size results in the object to be initially placed farther or closer respectively.\
 Like in Unreal, where one unit equals one meter, the units for the AR bounding box size are in meters.
 
-You can visualize the AR bounding box in Unreal Editor.
-
-<img src="docs/static/template-ar-bb.png" alt="Bounding box visualizer" width="300">
-
-_Note: This asset is visible in editor only._
-
-Creators have two ways of modifying the bounding box:
-
-1. Set the bounding box scale value for the whole project in the `XR_Init` settings.\
-This is useful in projects where only assets of a similar size are placed in AR mode.
-<img src="docs/static/template-ar-bb-xrinit.png" alt="Bounding box XR_Init" width="350">
-
-2. Modify the bounding box value on a specific event in the experience using the
+Creators can modify the bounding box value in the experience using the
 `UpdateBoundingBoxSize` event.
 <img src="docs/static/template-ar-bb-event.png" alt="Bounding box event" width="300">
 
