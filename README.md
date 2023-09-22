@@ -138,3 +138,12 @@ project level located in the `Plugins` subfolder.
 We support most standard UE5 engine plugins except for the Bridge plugin.
 Project plugins either need to be prebuilt for Linux or will be built
 as part of building the Content resource you create. The latter requires the upload of the source files of the plugin.
+
+##### Bridge Plugin
+If your project uses Quixel assets imported using the [Bridge Plugin](https://help.quixel.com/hc/en-us/sections/360005846137-Quixel-Bridge-for-Unreal-Engine-5),
+make sure you move or copy and relink the `Engine/Plugins/Bridge Content/MSPresets`
+folder into your `Content` folder to avoid missing materials.
+
+_Note: To do this in the editor, change the **Content Browser** settings to `Show Engine Content` and `Show Plugin Content`._
+
+Test the assets load correctly by disabling the **Bridge Plugin** and reloading your project.

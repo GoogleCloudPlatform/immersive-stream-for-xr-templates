@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.8] - 2023-09-21
+
+Added landscape UI for demos and improved Autos hotspots.
+
 ## [2.0.7] - 2023-08-03
 
 Added configurable bounding box scale for AR placement.
