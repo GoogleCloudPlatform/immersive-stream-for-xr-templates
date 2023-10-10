@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project
 
+## [2.0.9] - 2023-10-10
+
+Included safe area visual guidance.
+
 ## [2.0.8] - 2023-09-21
 
 Added landscape UI for demos and improved Autos hotspots.
