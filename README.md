@@ -86,7 +86,7 @@ Here area few suggestions to optimize your project if it is not running smoothly
 * **Textures:** Limit the total size of all loaded textures and the maximum dimensions of each texture.
 * **Map size:** Optimize file sizes to avoid an increase in loading times. To check the size of your maps in Unreal® Editor, use the right-click menu of the level umap and then select Size Map.
 * **Shadows:** Disable dynamic shadow casting for meshes that do not contribute much to the shadow and limit the number of light sources that cast dynamic shadows.
-* **Lighting:** Nanite is enabled by default. Balance the use of dynamic and static lighting.
+* **Lighting:** Lumen is enabled by default. Balance the use of dynamic and static lighting.
 * **Render times:** Analyze the statistics of a rendered frame in Unreal® Editor by positioning the camera to show the full model, running the `r.AllowOcclusionQueries 0` console command to avoid GPU object culling and using:
   * `stat RHI`
   * `stat GPU`
