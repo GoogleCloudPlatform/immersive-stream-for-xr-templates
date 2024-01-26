@@ -28,6 +28,8 @@ A. [Template Project](/Unreal_Template_Project)\
 B. [Minimal Integration](/Unreal_Minimal_Integration)
 
 _Both paths use [Unreal Engine®](https://cloud.google.com/immersive-stream/xr/docs/about-unreal) 5.0.3._
+
+_Important note: For cloud builds to work make sure that the **CHANGELOG.md** file is included in the root folder of your cloud content source bucket._ 
 _______________________________________________________________________________________
 
 ## Content guidelines for 3D and AR creators
