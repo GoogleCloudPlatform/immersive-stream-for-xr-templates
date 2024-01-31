@@ -23,7 +23,7 @@ function Convert-LineEndings {
 $ProjectPath = Resolve-Path -Path "${PSScriptRoot}\.."
 
 # Get first uproject file (there should not be multiple)
-$ProjectFile = (Get-ChildItem -Path "${ProjectPath}" -Filter *.uproject  | Select-Object -First 1)
+$ProjectFile = (Get-ChildItem -Path "${ProjectPath}" -Name -Filter *.uproject  | Select-Object -First 1)
 $SyncFiles = @($ProjectFile, "CHANGELOG.md", "XR_Template.png")
 
 $FoldersList = @("Content", "Config", "Cloud", "ImEdgeActions", "ToBuild", "Source", "Plugins")
