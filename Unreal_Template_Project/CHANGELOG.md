@@ -1,4 +1,9 @@
-# Immersive Stream for XR Template Project
+# Immersive Stream for XR Template Project - UnrealEngine
+
+## [3.0.0] - 2024-02-21
+
+Upgraded project to Unreal 5.3 and optimized blueprint logic and files.
+Added new feature demos: Session ID and AR Virtual Background.
 
 ## [2.0.9] - 2023-10-10
 
