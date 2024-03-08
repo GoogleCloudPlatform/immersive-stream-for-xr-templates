@@ -232,11 +232,11 @@ and spring arm.
 
 Some values are exposed for easier customization:
 
+* `Camera Distance`
+* `Min Cam Distance`
+* `Max Cam Distance`
 * `Swipe Speed`
 * `Pinch Scale`
-* `Cam Arm Length`
-* `Min Arm Length`
-* `Max Arm Length`
 
 #### Startup Customization
 <img src="docs/static/template-asset-id.png" alt="View in your space option" width="250">
