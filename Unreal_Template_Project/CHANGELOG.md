@@ -1,5 +1,9 @@
 # Immersive Stream for XR Template Project - UnrealEngine
 
+## [3.0.1] - 2024-03-08
+
+Minor changes to the ISXR_3D_Pawn, camera distance can now be modified dynamically.
+
 ## [3.0.0] - 2024-02-21
 
 Upgraded project to Unreal 5.3 and optimized blueprint logic and files.
