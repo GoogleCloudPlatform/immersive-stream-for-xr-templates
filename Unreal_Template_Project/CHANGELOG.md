@@ -1,6 +1,6 @@
 # Immersive Stream for XR Template Project - UnrealEngine
 
-## [3.0.2] - 2024-07-08
+## [3.0.2] - 2024-08-20
 
 Added visual guidance to find the main asset in AR mode.
 Included informative events in the SideChannel dummy blueprint.

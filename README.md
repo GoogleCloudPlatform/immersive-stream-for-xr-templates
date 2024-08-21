@@ -188,7 +188,7 @@ the starting pawn and UI to load correctly.
 <img src="docs/static/template-game-mode.png" alt="Game mode settings" width="350">
 
 #### Loading Assets Before the User Connects
-There is a signal that can be sent from the game to let the client know that it is ready for streaming.
+There is a signal that can be sent from the server to let the client know that it is ready for streaming.
 A game server will not become available for serving unless this signal is received.
 By default this signal is sent in the `ISXR_Init` blueprint when the console variable `r.C9.ReadyToStream` is set to 1.
 
@@ -227,9 +227,9 @@ widget blueprint and in the Features Session ID demo.
 <img src="docs/static/template-touch-events.png" alt="Touch events in Main_UI blueprint" width="500">
 
 ##### Change Cloud AR Asset ID
-To modify the Cloud AR asset ID you can use `ChangeCloudARAssetID_Dispatch`.
-This Modifies the asset ID used in the entrypoint URL.
-This could be used for example to assign a session code to save an asset customization.
+To modify the Cloud AR asset ID you can use the `ChangeCloudARAssetID_Dispatch` event.
+This modifies the asset ID used in the entrypoint URL.
+This feature allows users to save customized assets with session codes.
 
 <img src="docs/static/template-change-asset-id.png" alt="Change asset ID" width="550">
 
@@ -363,11 +363,11 @@ The background streaming levels need to be listed in the `Hide in AR` level list
 _Note: For faster transitions between modes, set all streaming levels to be
 initially loaded._
 
-##### Alpha in AR Mode
+##### Opacity in AR Mode
 
-For virtual assets to better integrate into the user's camera feed, in AR mode we process alpha in a special way.
-For this to work, please avoid rendering custom depth passes for geometry.
-The `Render CustomDepth Pass` value should be set to `False` (_note that `False` is the default value_).
+To enhance the integration of virtual assets into your camera feed in AR mode, we use a specialized opacity processing technique.
+
+Key point: Please ensure that the `Render Custom Depth Pass` is set to `False` (_note that `False` is the default value_).
 
 #### AR Camera Customization
 In AR mode, you can customize:
